@@ -20,7 +20,7 @@ import Order from "./user-comps/Order"
 import OrderDetailsDialog from "./user-comps/OrderDetailsDialog"
 import ProductDetails from "./user-comps/ProductDetails"
 import Review from "./user-comps/Review"
-import SortBy from "./user-comps/sortBy"
+import SortBy from "./user-comps/SortBy"
 import UserHeader from "./user-comps/UserHeader"
 
 
