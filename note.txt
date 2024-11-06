@@ -1,0 +1,19 @@
+-----------backend-----------
+bcryptjs
+cloudinary
+cookie-parser
+cors
+dotenv
+express
+jsonwebtoken
+mongoose
+multer
+nodemon
+npm
+i
+
+
+-----mongo db atlas-----
+username: dolamanirohidas696
+password: jI1BkwZ4VRmDnQbj
+connection string: mongodb+srv://dolamanirohidas696:jI1BkwZ4VRmDnQbj@cluster0.u7zdz.mongodb.net/
