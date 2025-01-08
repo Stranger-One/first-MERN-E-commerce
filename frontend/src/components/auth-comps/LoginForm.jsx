@@ -8,17 +8,20 @@ import { setIsAuthenticated, setIsLoading, setUserData } from '@/store/authSlice
 import { useToast } from '@/hooks/use-toast';
 import { createCart } from '@/services/cartServices';
 import { loginUser } from '@/services/authServices';
+import { BtnLoader } from '..';
 
 const LoginForm = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch()
     const isLoading = useSelector(state => state.auth.isLoading)
+    const [loading, setLoading] = useState(false)
 
     const { toast } = useToast()
 
     const handleLogin = async (e) => {
         e.preventDefault()
+        setLoading(true)
 
         const response = await loginUser(email, password)
         if (response.success) {
@@ -40,44 +43,8 @@ const LoginForm = () => {
         }
 
         dispatch(setIsLoading(false))
+        setLoading(false)
 
-        // await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`, {
-        //     email,
-        //     password
-        // }, {
-        //     withCredentials: true
-        // }).then((response) => {
-        //     // console.log(response.data);
-        //     if (response.data.success) {
-        //         dispatch(setIsAuthenticated(true))
-        //         dispatch(setUserData(response.data.user))
-
-        //         createCart(response.data.user.id)
-
-        //         toast({
-        //             title: response.data.message,
-        //         })
-        //         dispatch(setIsLoading(false))
-
-        //     } else {
-        //         toast({
-        //             title: response.data.message,
-        //             variant: "destructive"
-        //         })
-        //         dispatch(setIsLoading(false))
-
-        //     }
-        // }).catch((error) => {
-        //     console.log(error);
-        //     toast({
-        //         title: error.response.data.message,
-        //         variant: "destructive"
-        //     })
-        //     dispatch(setIsLoading(false))
-
-        // })
-
-        // console.log(email, password);
     };
 
 
@@ -102,7 +69,7 @@ const LoginForm = () => {
                     <Input required type="password" id="password" placeholder="Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
             </div>
-            <Button type="submit" className="w-full mt-4">Login</Button>
+            <Button type="submit" className="w-full mt-4">{loading ? <BtnLoader/> : "Login"}</Button>
         </form>
     )
 }

@@ -6,6 +6,7 @@ import AdminSidebar from "./admin-comps/AdminSidebar"
 import ProductAddForm from "./admin-comps/ProductAddForm"
 import LoginForm from "./auth-comps/LoginForm"
 import RegisterForm from "./auth-comps/RegisterForm"
+import BtnLoader from "./common/BtnLoader"
 import Address from "./user-comps/Address"
 import AddressCard from "./user-comps/AddressCard"
 import AddressForm from "./user-comps/AddressForm"
@@ -23,8 +24,8 @@ import Review from "./user-comps/Review"
 import SortBy from "./user-comps/SortBy"
 import UserHeader from "./user-comps/UserHeader"
 
-
 export{
+    BtnLoader,
     ConfirmOrder,
     AdminOrder,
     AdminOrderDetailsDialog,
